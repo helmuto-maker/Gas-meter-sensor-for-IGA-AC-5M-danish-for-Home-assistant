@@ -10,7 +10,7 @@ To measure the gas use on an IGA AC-5M gas-meter (danish gas meter), it is possi
 ## Installation
 - Attach the magnetometer to e.g. D1 and D2 on the ESP8266 (SDA Pin: GPIO5, SCL Pin: GPIO4). Power up the ESP8266 and make sure it is connected to your local wifi and is discovered in ESPHome. To protect the ESP8266 from water and dust, I use a small power junction plastic box which is IP65 protected. I supply power with a long USB cable from inside the house and through a window.
 - Update the ESP8266 with the code below and edit with your own passwords
-- Gaffatape the magnetometer onto the gas-meter according to the image below
+- Gaffatape the magnetometer onto the gas-meter according to the image above :-)
 - In Home Assistant, figure out which of the axis-readings (x, y or z) gives out a variable signal when gas is being used (Turn on the stove to force gas use if possible). Comment out the axis-readings that are not neeeded. In the code below, the z-axis is the one giving the needed data.
 - Finally, a template sensor is needed in Home Assistant to detect each revolution of the measuring disc in the gas-meter. The readout from the sensor describes a sinus-curve for each revolution of the measuring disc and in the HA code below, I have identified the middle of the sinus-curve to be 10 µT.
 
@@ -72,3 +72,5 @@ sensor:
 ```
 - "upper" detects when the measuring disc in the gas meter (measured as a sinus-curve) is halfway through its revolution
 - "hysteresis" ensures that if the meter stops very close to the "upper" limit and small vibrations on the sensor makes it jump up and down from the limit, that it does not measure them as full revolutions of the measuring disc
+
+In my setup, 1 revolution equals 1.75 l of gas. But you will have to figure out over time by cross checking with the actual meter readings.
