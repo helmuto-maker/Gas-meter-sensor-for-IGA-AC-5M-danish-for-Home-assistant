@@ -11,6 +11,8 @@ To measure the gas use on an IGA AC-5M gas-meter (danish gas meter), it is possi
 - In Home Assistant, figure out which of the axis-readings (x, y or z) gives out a variable signal when gas is being used (Turn on the stove to force gas use if possible). Comment out the axis-readings that are not neeeded. In the code below, the z-axis is the one giving the needed data.
 - Finally, a template sensor is needed in Home Assistant to detect each revolution of the measuring disc in the gas-meter. The readout from the sensor describes a sinus-curve for each revolution of the measuring disc and in the HA code below, I have identified the middle of the sinus-curve to be 10 µT.
 
+![Magentometer reading](https://github.com/helmuto-maker/Gas-meter-sensor-for-IGA-AC-5M-danish-for-Home-assistant/blob/main/magnetometer%20reading.png)
+
 ## ESPHome Code
 
 ```
